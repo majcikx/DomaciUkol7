@@ -62,46 +62,7 @@ public class Kontakt {
         return Objects.hash(telCislo, jmeno, prijmeni, kategorie);
     }
 
-    public void najdiKontaktPodleTel(String telCislo, ArrayList<Kontakt> list){
 
-        for (int i = 0; i < list.size();i++) {
-            if (Objects.equals(telCislo,list.get(i).telCislo)) {
-                System.out.println(list.get(i).jmeno + list.get(i).prijmeni + list.get(i).telCislo + list.get(i).kategorie);
-            }
-        }
-
-    }
-
-    public ArrayList<Kontakt> najdiZaznamPodleJmenaNeboPrijmeni(String jmenoNeboPrijmeni, ArrayList<Kontakt> list){
-        ArrayList<Kontakt> nalezeno = new ArrayList<Kontakt>();
-
-        for (int i = 0; i < list.size();i++) {
-            if ((Objects.equals(jmenoNeboPrijmeni,list.get(i).jmeno)||(Objects.equals(jmenoNeboPrijmeni,list.get(i).prijmeni)))) {
-                nalezeno.add(list.get(i));
-            }
-
-        }
-        return nalezeno;
-
-    }
-
-    public ArrayList<Kontakt> najdiZaznamPodleCastiCisla(Map<String,Kontakt> seznam, String cislo){
-        ArrayList<Kontakt> nalezeno = new ArrayList<Kontakt>();
-
-
-        for (Map.Entry<String, Kontakt> entry: seznam.entrySet()) {
-            if (entry.getKey().contains(cislo)){
-            nalezeno.add(entry.getValue());
-            }
-        }
-        return nalezeno;
-    }
-
-    public void vypisSeznam(ArrayList<Kontakt> list){
-        for (Kontakt kontakt:list) {
-            System.out.println(kontakt.jmeno + kontakt.prijmeni + kontakt.kategorie + kontakt.telCislo);
-        }
-    }
 
 
 

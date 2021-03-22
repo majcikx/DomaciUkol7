@@ -38,6 +38,8 @@ public class Main {
         seznam.put(kontakt7.getTelCislo(),kontakt7);
         seznam.put(kontakt8.getTelCislo(),kontakt8);
 
+        LogicFindRecord callLogic = new LogicFindRecord();
+
         System.out.println("Chceš vyhledávat podle: ");
         System.out.println("Celeho telefonního čísla - 1, Jména nebo příjmení - 2, části televonního čísla - 3");
 
@@ -50,7 +52,7 @@ public class Main {
             //Rozpracovat volbu jedna
             String nacteneTelCislo;
             nacteneTelCislo = nacitaniZPrikazovehoRadku.nextLine();
-            kontakt1.najdiKontaktPodleTel(nacteneTelCislo,telSeznam);
+            callLogic.najdiKontaktPodleTel(nacteneTelCislo,telSeznam);
 
         }else if(nactenaVolba.equals("2")){
             System.out.println("Vybrali jste hledaní podle jména nebo příjmení. Zadejte jméno nebo příjmení");
@@ -58,16 +60,16 @@ public class Main {
             String jmenoNeboPrijmeni;
             ArrayList<Kontakt> vypisSeznamu;
             jmenoNeboPrijmeni = nacitaniZPrikazovehoRadku.nextLine();
-            vypisSeznamu =  kontakt1.najdiZaznamPodleJmenaNeboPrijmeni(jmenoNeboPrijmeni,telSeznam);
-            kontakt1.vypisSeznam(vypisSeznamu);
+            vypisSeznamu =  callLogic.najdiZaznamPodleJmenaNeboPrijmeni(jmenoNeboPrijmeni,telSeznam);
+            callLogic.vypisSeznam(vypisSeznamu);
         } else if (nactenaVolba.equals("3")){
             //Rozpracovat volbu 3
             System.out.println("Vybrali jste hledaní podle části telefonního čísla. Zadejte část telefonního čísla");
             String castTelCisla;
             ArrayList<Kontakt> vypisSeznamu;
             castTelCisla = nacitaniZPrikazovehoRadku.nextLine();
-            vypisSeznamu = kontakt1.najdiZaznamPodleCastiCisla(seznam,castTelCisla);
-            kontakt1.vypisSeznam(vypisSeznamu);
+            vypisSeznamu = callLogic.najdiZaznamPodleCastiCisla(seznam,castTelCisla);
+            callLogic.vypisSeznam(vypisSeznamu);
 
         }
 
